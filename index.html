@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
+    <title>Jogo da velha</title>
+</head>
+<body>
+    <main class="conteiner">
+        <div class="cabecalho">
+            <h1>Jogo da velha</h1>
+            <h2 id="regras" onclick="dropdown()">Regras do jogo <ion-icon name="caret-up-outline"></ion-icon></h2>
+            <ol id="dropdown-item">
+                <li>O "X" é sempre quem inicia o jogo.</li>
+                <li>Vence o jogador que conseguir formar uma sequencia tripla de seu icone. Pode ser em diagonal, vertical ou horizontal.</li>
+                <li>Não é possivel retirar uma icone depois de colocado.</li>
+                <li>Será considerado empate caso tenha acabado os espaços para por icones e nenhum dos jogadores tenham formado uma sequencia de 3 icones.</li>
+            </ol>
+        </div> 
+        <div class="layout">
+            <div class="piece" id="borda1">1</div>
+            <div class="piece" id="01">2</div>
+            <div class="piece" id="borda2">3</div>
+            <div class="piece" id="10">4</div>
+            <div class="piece" id="11">5</div>
+            <div class="piece" id="12">6</div>
+            <div class="piece" id="borda3">7</div>
+            <div class="piece" id="21">8</div>
+            <div class="piece" id="borda4">9</div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+</html>
