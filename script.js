@@ -3,6 +3,9 @@ let statusDropdown = 1
 let regras = document.getElementById('regras')
 let listaDeRegras = document.getElementById('dropdown-item')
 
+let posicoes = document.getElementsByClassName('piece')
+
+
 function dropdown(){
     if(statusDropdown === 0){
 
@@ -22,3 +25,6 @@ function dropdown(){
     }
     
 }
+
+// fazendo o game funcionar
+
