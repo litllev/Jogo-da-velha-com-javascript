@@ -6,7 +6,10 @@ let listaDeRegras = document.getElementById('dropdown-item')
 let posicoes = document.getElementsByClassName('piece')
 let placar = document.getElementById('placar').children
 
+//dropdown das regras do game
 function dropdown(){
+    //se desligado ao clicar então ligar
+    //senao ligado ao clicar então desligar
     if(statusDropdown === 0){
 
         dropdownItem.style.display = 'block'
@@ -32,9 +35,12 @@ function dropdown(){
 // Pra saber quem está jogando vou ultilizar um contador, a partir do contador vai ser possivel saber de quem é a vez
 
 let contador = 0
+// contar a quantidade de vitorias ou empates dos jogadores
 let x = 0
 let o = 0
 let empate = 0
+
+//adicionar icone ao clicar
 function adicionarIcone(elemento){
     if(elemento.innerHTML === ''){
         if (contador % 2 === 0) {
@@ -44,16 +50,20 @@ function adicionarIcone(elemento){
         }
         contador += 1
     }
-    if(contador >= 5){
+    setTimeout(()=>{
+        if(contador >= 5){
         //chamando a função de verificação apartir do ponto que ja pode haver uma vitoria
         verificar()
-    }
-    if(contador === 9){
-        window.alert(`Deu empate`)
-        empate++
+    }}, 100)
+    
+    //caso todos os espaços tenham sidos preenchidos e não haja vitoria
+    setTimeout( ()=>{
+        if(contador === 9){
         placar[2].innerHTML = 'Empates: ' + empate
         limparTela()
-    }
+        alert(`Deu empate`)
+        empate++}
+    },100)
 }
 
 function verificar(){
@@ -67,6 +77,7 @@ function verificar(){
                 
             }
             }
+    // verificação de tripla nas linhas
     for (let j = 0; j <= 8; j += 3) {
         try {
             if (posicoes[j].childNodes[0].dataset.icone === posicoes[j+1].childNodes[0].dataset.icone && posicoes[j].childNodes[0].dataset.icone === posicoes[j+2].childNodes[0].dataset.icone) {
@@ -76,6 +87,7 @@ function verificar(){
             
         }
         }
+        // verificação de tripla nas diagonais
             try{
                 if (
                     posicoes[0].childNodes[0].dataset.icone === posicoes[4].childNodes[0].dataset.icone && 
@@ -91,7 +103,7 @@ function verificar(){
 }
 
 function fimDoJogo(jogador) {
-    window.alert(`O jogador ${jogador} Venceu`)
+    window.alert(`O jogador ${jogador} venceu`)
     if (jogador === 'x') {
         x++
         placar[0].innerHTML = 'Vitorias de x: ' + x
